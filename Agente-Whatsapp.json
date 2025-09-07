@@ -1,0 +1,894 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.text }}",
+        "options": {
+          "systemMessage": "=Rol\n\nSos Marcos, asesor comercial de Cayena Catering Salta, con más de 10 años organizando eventos en el norte argentino. Acompañás a familias y empresas con propuestas gastronómicas cálidas, prolijas y con el toque salteño que nos distingue.\n\nEstilo de comunicación\n\nTono argentino del norte (Salta), cercano y de confianza.\n\nNatural y amable, frases cortas y siempre en un solo párrafo por respuesta.\n\nPodés usar expresiones como buenísimo, de una, ya te cuento.\n\nEvitá usar las palabras che y gauchada.\n\nOrtografía y gramática cuidadas. Sin tecnicismos innecesarios.\n\nHerramientas\n\nPresupuestos: obtener propuestas, disponibilidad, información de los dos servicios (Formal y Finger Food), menús, condiciones y logística. Si el contacto pregunta por servicios del catering (qué ofrecemos, opciones o disponibilidad), consultá Presupuestos sí o sí.\n\nPrecios: obtener valores según cantidad de invitados y tipo de servicio (Formal o Finger Food). Si el contacto pide precios/valores, consultá Precios; podés usar Precios además de Presupuestos en la misma conversación.\n\nOrden: generar la propuesta formal cuando el usuario confirma avanzar (usar con todo lo cotizado).\n\nAutoalimentacion: activar si el usuario pide algo fuera de catering/eventos, solicita info confidencial, o detectás inconsistencias.\n\nFlujo de conversación (paso a paso)\n\nDetección de necesidad: desde el primer mensaje, identificá tipo de evento, fecha tentativa y cantidad de invitados.\n\nSaludo inicial (si corresponde): Hola! buen día, contanos en qué podemos ayudarte con tu evento. Si ya pidieron algo puntual, respondé directo sin saludo.\n\nDatos clave (pedir solo lo necesario para consultar herramientas):\n\nTipo de evento (boda, cumpleaños, corporativo, social).\n\nCantidad de invitados (aprox.).\n\nFecha estimada.\n\nLocalidad/ciudad y lugar (salón, quinta, domicilio) para logística.\n\nTipo de servicio: Formal o Finger Food (si no lo sabe, ofrecé ambas opciones y consultá Presupuestos por las dos).\n\nFormato operativo: en sitio con staff o entrega/retiro sin servicio.\n\nPreferencias/dietas: vegetariano/vegano, celíacos, sin cerdo, infantiles, etc.\n\nDuración estimada del servicio y franja horaria (si aplica).\n\nConsulta a Presupuestos: con los datos mínimos, activá Presupuestos para traer menús, condiciones, logística y disponibilidad de Formal y/o Finger Food; devolvé textual lo que responda (sin inventar ítems ni condiciones).\n\nConsulta a Precios: si el contacto pide precios/valores, activá Precios con tipo de servicio (Formal o Finger Food) y cantidad de invitados; devolvé textual lo que responda.\n\nPropuesta y seguimiento: cerrá siempre con ¿Querés que te demos una mano con algún otro detalle del evento?.\n\nAvance a Orden: si el usuario dice que quiere seguir, pedí correo, nombre y número de contacto y usá Orden con todo lo cotizado.\n\nMemoria de contexto: si ya tenés localidad, servicio elegido (Formal/Finger Food), invitados o dietas, no lo pidas de nuevo salvo cambios; si cambian, actualizá y volvé a consultar la(s) herramienta(s) que corresponda(n).\n\nReglas importantes\n\nNunca inventes menús, disponibilidad, condiciones, totales ni valores: usá Presupuestos y/o Precios.\n\nNo muestres montos ni símbolos de moneda en tus textos fuera de lo devuelto por Presupuestos o Precios. Evitá redactar números económicos por cuenta propia.\n\nCuando las herramientas devuelvan resultados, retransmití textual su estructura (ítems, menús, condiciones, observaciones, similares/alternativas).\n\nSi el usuario pide la propuesta por correo, respondé: No puedo enviarla directamente, en breve un asesor de Cayena se comunicará.\n\nSi el usuario cambia en sitio ↔ entrega/retiro, Formal ↔ Finger Food, o modifica localidad/fecha/invitados, actualizá y consultá nuevamente Presupuestos y/o Precios según corresponda.\n\nSi Presupuestos indica sin disponibilidad, informá que se confirmará con cocina y tiempos estimados, y ofrecé alternativas de fecha/formato.\n\nUn solo párrafo por respuesta. Breve, claro y resolutivo.\n\nCatálogo de servicios (para orientar si el usuario está indeciso)\nTipos de eventos\n\nBodas\n\nCumpleaños\n\nAniversarios\n\nCorporativos\n\nSociales (bautismos, comuniones, despedidas, etc.)\n\nServicios principales\n\nFormal: servicio con staff, montaje de mesas, menús completos (Asado Premium, Buffet Internacional, Tradicional Argentino), mesas dulces y postres.\n\nFinger Food: cóctel con bocados fríos/calientes, estación de bebidas, posibilidad de servicio en sitio o entrega.\n\nAdicionales\n\nStaff: chefs, parrilleros, mozos/as, coordinador/a\n\nMontaje: vajilla, cristalería, mantelería\n\nAmbientación: deco, flores, iluminación básica\n\nMúsica/DJ (coordinación con proveedor)\n\nCoordinación integral (línea de tiempo, cronograma, proveedores)\n\nDisparadores obligatorios a Presupuestos\n\nCualquier consulta sobre servicios del catering: qué ofrecemos, menús, condiciones, disponibilidad.\n\nCuando ya tengas tipo de evento + invitados + fecha (aprox) + localidad.\n\nCuando el usuario cambie alguno de esos datos.\n\nDisparadores obligatorios a Precios\n\nCualquier consulta de precios/valores para Formal o Finger Food.\n\nCuando ya tengas tipo de servicio (Formal o Finger Food) y cantidad de invitados.\n\nCuando el usuario cambie tipo de servicio o invitados.\n\nEstructura de respuesta de cotización (retransmitir textual lo que devuelva Presupuestos)\n\nPropuesta para tu evento\n\nMenú / Servicio: [devuelto por Presupuestos]\nIncluye: [devuelto por Presupuestos]\nCantidad: [devuelto por Presupuestos]\n\nAdicionales: [devuelto por Presupuestos]\nLogística: [devuelto por Presupuestos]\nCondiciones: [devuelto por Presupuestos]\nSimilares/Alternativas: [devuelto por Presupuestos]\nSubtotal: [devuelto por Presupuestos]\nTotal General: [devuelto por Presupuestos]\nCierre: ¿Querés que te demos una mano con algún otro detalle del evento?\n\nEstructura de respuesta de precios (retransmitir textual lo que devuelva Precios)\n\nValores para tu evento\nTipo de servicio: [Formal/Finger Food, devuelto por Precios]\nCantidad de invitados: [devuelto por Precios]\nDetalle de valores y condiciones: [devuelto por Precios]\nSimilares/Alternativas: [si las devuelve Precios]\nCierre: ¿Querés comparar con el otro servicio o ajustar la cantidad de invitados?\n\nEjemplos de redacción (un párrafo, sin datos económicos)\n\nBuenísimo, ya tengo el tipo de evento y la fecha. Me pasás la cantidad aproximada de invitados, la localidad y si preferís servicio Formal o Finger Food así consulto Presupuestos y te vuelvo con menús, logística y disponibilidad.\n\nDe una, si querés valores para Finger Food, paso por Precios con la cantidad de invitados y te comparto lo que devuelve junto con alternativas; si preferís, también consulto Formal para que compares."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        672,
+        320
+      ],
+      "id": "17c5e3c0-d07e-4501-a66e-03fa523b6966",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        480,
+        528
+      ],
+      "id": "8530c44e-3f57-4e60-8a5b-a63f327adcdc",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "Q2UdMhw1hh2CpZ6z",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('WhatsApp Trigger').item.json.contacts[0].wa_id }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        672,
+        528
+      ],
+      "id": "26b99b00-02a2-4d34-bbdb-c61186b8e296",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a1fbf525-1581-4ff0-a2e6-c46972a5f293",
+                    "leftValue": "={{ $json.messages[0].audio }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "object",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Audio"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "85caaabc-9765-44c1-9673-84d3cd25fb0a",
+                    "leftValue": "={{ $json.messages[0].text.body }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Text"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.messages[0].image }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "object",
+                      "operation": "exists",
+                      "singleValue": true
+                    },
+                    "id": "bbe0ac46-9abc-4e36-9630-814056e63627"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Image"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -96,
+        368
+      ],
+      "id": "0568c9c0-abee-4b5e-8245-9cee4ede5757",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "content": "## Recibir Whatsapp",
+        "height": 260,
+        "width": 500,
+        "color": 2
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -368,
+        304
+      ],
+      "id": "f83edfa7-92d6-4ef3-b6b0-606ec5c55adc",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## AI Agent",
+        "height": 360,
+        "width": 732,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        432,
+        304
+      ],
+      "id": "08d07a2c-a06f-48a9-b606-435269db9eac",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Respuesta",
+        "height": 700,
+        "width": 760,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        272
+      ],
+      "id": "2a04a248-d766-46c7-aadb-e0f3c0cfd416",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "messages"
+        ],
+        "options": {}
+      },
+      "type": "n8n-nodes-base.whatsAppTrigger",
+      "typeVersion": 1,
+      "position": [
+        -304,
+        368
+      ],
+      "id": "31d386c4-3fea-42d3-a0a9-b7c90f4ced29",
+      "name": "WhatsApp Trigger",
+      "webhookId": "ddf3e91c-8bed-496e-9231-d1a99c2398ba",
+      "credentials": {
+        "whatsAppTriggerApi": {
+          "id": "xcN93MCzBpo3Kvag",
+          "name": "WhatsApp OAuth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "media",
+        "operation": "mediaUrlGet",
+        "mediaGetId": "={{ $('WhatsApp Trigger').item.json.messages[0].audio.id }}"
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        80,
+        64
+      ],
+      "id": "59c05c84-efb0-4243-9052-dfdaa3754688",
+      "name": "ObtenerURLAudio",
+      "webhookId": "cb722338-b693-43b8-bb90-dda37b971080",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "tv8vd5vhVq8ZGbQv",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Procesar Audio",
+        "height": 220,
+        "width": 780
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "572e41e4-408c-49b3-816b-ac4c1b58dee2",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "0f1f93c3-423b-4693-a833-0dce6a76bd48",
+              "leftValue": "={{ $('Switch').item.json.messages[0].audio }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1264,
+        352
+      ],
+      "id": "4f6561ba-1bc4-4853-a654-1c1374f769f2",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "item.binary.data.mimeType = \"audio/mpeg\";\nreturn item;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1632,
+        320
+      ],
+      "id": "d27bff1d-d875-401a-b1a3-ba540649bb50",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "resource": "media",
+        "operation": "mediaUrlGet",
+        "mediaGetId": "={{ $('WhatsApp Trigger').item.json.messages[0].image.id }}"
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        368,
+        800
+      ],
+      "id": "70e05c9e-d1ac-421f-99a0-831e4af69871",
+      "name": "ObtenerImagenURL",
+      "webhookId": "aba04179-9fa3-40b0-bc1a-581f9c6352dc",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "tv8vd5vhVq8ZGbQv",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "operation": "analyze",
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "text": "={{ $('PromptImagen').item.json.TextoEnImagen }}",
+        "inputType": "base64",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        784,
+        800
+      ],
+      "id": "58ad2019-0db1-4c27-8933-4090bf8e3883",
+      "name": "AnalizarImagen",
+      "credentials": {
+        "openAiApi": {
+          "id": "Q2UdMhw1hh2CpZ6z",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Procesar Imagen",
+        "height": 240,
+        "width": 820,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        128,
+        752
+      ],
+      "id": "63d6bbf5-471d-47bf-b78f-b2ce5afd9161",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "634906809707589",
+        "recipientPhoneNumber": "={{ $('Switch').item.json.contacts[0].wa_id }}",
+        "messageType": "audio",
+        "mediaPath": "useMedian8n",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        1776,
+        320
+      ],
+      "id": "f0e54811-6864-48f4-8142-7b1278429430",
+      "name": "RespuestaAudio",
+      "webhookId": "7534f284-6bac-4caa-b6d5-b6e5ebdd1ebd",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "tv8vd5vhVq8ZGbQv",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "634906809707589",
+        "recipientPhoneNumber": "={{ $('WhatsApp Trigger').item.json.messages[0].from }}",
+        "textBody": "={{ $json.output }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        1568,
+        560
+      ],
+      "id": "ba6cd960-7510-440b-8c79-4146c7378695",
+      "name": "RespuestaTexto",
+      "webhookId": "a8e8c137-928b-4229-85a2-e341f2c9a720",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "tv8vd5vhVq8ZGbQv",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "634906809707589",
+        "recipientPhoneNumber": "={{ $('Switch').item.json.contacts[0].wa_id }}",
+        "textBody": "={{ $json.content }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        1344,
+        768
+      ],
+      "id": "1e4f3daa-a74a-4cab-be65-1d2705538587",
+      "name": "RespuestaImagen",
+      "webhookId": "6b4cffef-d941-470c-bb0e-6e0d43d8407a",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "tv8vd5vhVq8ZGbQv",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        560,
+        800
+      ],
+      "id": "7b2a3e6c-a1fe-4b73-9b0a-678ba43b7705",
+      "name": "DescargaImagen",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "u3xpWNNNboUPufMs",
+          "name": "Header Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "37553312-32fc-44aa-aeac-1cbacb0ad7fd",
+              "name": "TextoEnImagen",
+              "value": "={{ $('WhatsApp Trigger').item.json.messages[0].image.caption }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        160,
+        800
+      ],
+      "id": "4040d573-0f03-49ae-ac37-b2443b901660",
+      "name": "PromptImagen"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c773d5d2-5093-4d9c-a6ef-808aabeb57fe",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        608,
+        64
+      ],
+      "id": "d638ccd8-9315-4b37-85ea-03ca8a3ed80b",
+      "name": "PromptAudio"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0cb6d979-5baa-44e4-9278-d69698d2bb06",
+              "name": "text",
+              "value": "={{ $('WhatsApp Trigger').item.json.messages[0].text.body }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        272,
+        368
+      ],
+      "id": "dcdbd659-70d0-4953-887a-b1a7b61b5a66",
+      "name": "PromptTexto"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        240,
+        64
+      ],
+      "id": "768773bb-7aa2-4243-bba1-458bd4ab47b6",
+      "name": "DescargaAudio",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "u3xpWNNNboUPufMs",
+          "name": "Header Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        432,
+        64
+      ],
+      "id": "aca33d3e-a3a4-440e-9313-e77cb5c2b6ef",
+      "name": "TranscribirAudio",
+      "credentials": {
+        "openAiApi": {
+          "id": "Q2UdMhw1hh2CpZ6z",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "input": "={{ $('AI Agent').item.json.output }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1472,
+        320
+      ],
+      "id": "4d18a483-9fcc-4eb0-900a-aaadde6380b2",
+      "name": "GenerarAudio",
+      "credentials": {
+        "openAiApi": {
+          "id": "Q2UdMhw1hh2CpZ6z",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1G09KHDvZUeQMXKXBIF2E1IA8MMfvHywfUB6TSv9DgBw",
+          "mode": "list",
+          "cachedResultName": "Precios",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1G09KHDvZUeQMXKXBIF2E1IA8MMfvHywfUB6TSv9DgBw/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1G09KHDvZUeQMXKXBIF2E1IA8MMfvHywfUB6TSv9DgBw/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        1024,
+        512
+      ],
+      "id": "bc510fdc-05aa-4cb8-ae75-ce5984ffb739",
+      "name": "Precios",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "OdPzY3pAbh17AlEd",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "endpointUrl": "https://cayenass.app.n8n.cloud/mcp-test/656a0e32-9ce5-419f-b26f-68172debdd83",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "typeVersion": 1.1,
+      "position": [
+        848,
+        528
+      ],
+      "id": "954fa678-e855-44a7-ae20-8d643557b642",
+      "name": "Presupuestos"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "ObtenerURLAudio",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "PromptTexto",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "PromptImagen",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WhatsApp Trigger": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ObtenerURLAudio": {
+      "main": [
+        [
+          {
+            "node": "DescargaAudio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "GenerarAudio",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "RespuestaTexto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "RespuestaAudio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ObtenerImagenURL": {
+      "main": [
+        [
+          {
+            "node": "DescargaImagen",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AnalizarImagen": {
+      "main": [
+        [
+          {
+            "node": "RespuestaImagen",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DescargaImagen": {
+      "main": [
+        [
+          {
+            "node": "AnalizarImagen",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PromptImagen": {
+      "main": [
+        [
+          {
+            "node": "ObtenerImagenURL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PromptAudio": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PromptTexto": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DescargaAudio": {
+      "main": [
+        [
+          {
+            "node": "TranscribirAudio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TranscribirAudio": {
+      "main": [
+        [
+          {
+            "node": "PromptAudio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GenerarAudio": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Precios": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Presupuestos": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "18bb68a8-bf21-4f65-b7fc-94b9c6c9fe1f",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "3b40ed40b01ff267b6229b94e73a2de3982bddac89e93fba416008476ce64e04"
+  },
+  "id": "ruzXW7XEypEJr1GF",
+  "tags": []
+}

@@ -1,0 +1,22 @@
+# SO / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.history/
+
+# Archivos temporales
+*.log
+*.tmp
+*.bak
+
+# Credenciales / secretos (NO subir)
+.env
+*.env
+credentials.json
+token.json
+
+# Exports de n8n que NO quieras publicar (deja sólo el .json del flow)
+*.n8n.backup
+*.sqlite
+.n8n/
